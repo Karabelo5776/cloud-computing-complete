@@ -1,0 +1,180 @@
+/* InvestorDashboard.css - Lesotho Flag Theme */
+.dashboard-container {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Header with Lesotho blue */
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #00209f; /* Lesotho flag blue */
+    color: white;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 32, 159, 0.1);
+  }
+  
+  .dashboard-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  /* Logout button with Lesotho colors */
+  .logout-button {
+    background-color: #ffffff; /* White from flag */
+    color: #00209f; /* Lesotho blue */
+    border: 2px solid #00209f;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .logout-button:hover {
+    background-color: #00209f;
+    color: white;
+  }
+  
+  /* Financial summary cards with flag colors */
+  .financial-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .summary-card {
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-card h3 {
+    margin-top: 0;
+    font-size: 18px;
+  }
+  
+  .summary-card .amount {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .revenue {
+    background-color: #009a44; /* Lesotho flag green */
+  }
+  
+  .expenses {
+    background-color: #000000; /* Black from flag */
+  }
+  
+  .profit {
+    background-color: #00209f; /* Lesotho flag blue */
+  }
+  
+  .loss {
+    background-color: #d9534f; /* Red for loss (not in flag but needed for contrast) */
+  }
+  
+  /* Charts container */
+  .charts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .chart-wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .chart-wrapper h2 {
+    margin-top: 0;
+    color: #00209f; /* Lesotho blue */
+    font-size: 18px;
+  }
+  
+  .chart-wrapper.full-width {
+    grid-column: span 2;
+  }
+  
+  .chart {
+    position: relative;
+    height: 300px;
+    width: 100%;
+  }
+  
+  /* Loading and error states */
+  .loading-container, .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #00209f; /* Lesotho blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .error-message {
+    color: #d9534f;
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  
+  .retry-button {
+    background-color: #00209f; /* Lesotho blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .retry-button:hover {
+    background-color: #00157a;
+  }
+  
+  /* Tooltip styling */
+  .chartjs-tooltip {
+    background-color: rgba(0, 32, 159, 0.9) !important; /* Lesotho blue */
+    border-radius: 4px !important;
+    color: white !important;
+    padding: 10px !important;
+    border: none !important;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .financial-summary {
+      grid-template-columns: 1fr;
+    }
+    
+    .charts-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .chart-wrapper.full-width {
+      grid-column: span 1;
+    }
+  }

@@ -1,0 +1,145 @@
+.dashboard-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.dashboard-section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.loading-container, .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.error-message {
+  color: #dc3545;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.retry-button, .logout-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.retry-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.retry-button:hover {
+  background-color: #0056b3;
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.logout-button:hover {
+  background-color: #bb2d3b;
+}
+
+.financial-content, .sales-content, .inventory-content {
+  display: flex;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.financial-tables {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+}
+
+.financial-table {
+  flex: 1;
+}
+
+.financial-chart, .sales-chart, .inventory-chart {
+  flex: 1;
+  min-height: 300px;
+}
+
+.sales-table, .inventory-table {
+  flex: 2;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.positive {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.negative {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.high-stock {
+  color: #28a745;
+}
+
+.low-stock {
+  color: #ffc107;
+}
+
+.out-of-stock {
+  color: #dc3545;
+}
+
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .financial-content, .sales-content, .inventory-content {
+    flex-direction: column;
+  }
+  
+  .financial-tables {
+    flex-direction: column;
+  }
+}

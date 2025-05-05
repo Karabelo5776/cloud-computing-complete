@@ -1,0 +1,211 @@
+.iwb-login-portal {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+}
+
+.iwb-login-container {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 600px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+}
+
+.iwb-login-left {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.iwb-login-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(32, 32, 32, 0.7) 0%, rgba(32, 32, 32, 0.4) 100%);
+}
+
+.iwb-login-right {
+    flex: 1;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.iwb-login-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.iwb-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    transition: transform 0.3s ease;
+}
+
+.iwb-logo-placeholder:hover {
+    transform: scale(1.05);
+}
+
+.iwb-login-title {
+    font-size: 32px;
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.iwb-login-subtitle {
+    color: #718096;
+    font-size: 16px;
+}
+
+.iwb-login-form {
+    width: 100%;
+}
+
+.iwb-input-group {
+    margin-bottom: 24px;
+}
+
+.iwb-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #4a5568;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.iwb-input-group input,
+.iwb-input-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: #2d3748;
+    background: #fff;
+}
+
+.iwb-input-group input:focus,
+.iwb-input-group select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+.iwb-login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.iwb-login-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.2);
+}
+
+.iwb-login-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.iwb-button-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.iwb-spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s linear infinite;
+}
+
+.iwb-login-footer {
+    margin-top: 32px;
+    text-align: center;
+}
+
+.iwb-login-footer p {
+    color: #718096;
+    margin: 8px 0;
+}
+
+.iwb-login-footer a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.iwb-login-footer a:hover {
+    color: #764ba2;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .iwb-login-left {
+        display: none;
+    }
+    
+    .iwb-login-right {
+        padding: 40px 20px;
+    }
+    
+    .iwb-login-title {
+        font-size: 28px;
+    }
+}
+
+/* Custom select styling */
+.iwb-input-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23718096' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Placeholder styling */
+.iwb-input-group input::placeholder {
+    color: #a0aec0;
+}
+
+/* Focus within effect for input groups */
+.iwb-input-group:focus-within label {
+    color: #667eea;
+}

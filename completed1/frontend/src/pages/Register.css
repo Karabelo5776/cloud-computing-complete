@@ -1,0 +1,327 @@
+/* Register.css */
+
+/* Container with Gradient Background */
+.iwb-register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Poppins', sans-serif;
+    padding: 2rem;
+  }
+  
+  /* Content Layout */
+  .iwb-register-content {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Image Section */
+  .iwb-register-image {
+    flex: 1;
+    background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+    position: relative;
+    display: none; /* Hidden on mobile */
+  }
+  
+  @media (min-width: 768px) {
+    .iwb-register-image {
+      display: block;
+    }
+  }
+  
+  .iwb-register-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7));
+  }
+  
+  /* Form Container */
+  .iwb-register-form-container {
+    flex: 1;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .iwb-register-form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+    z-index: 0;
+  }
+  
+  /* Form Box */
+  .iwb-register-form-box {
+    position: relative;
+    z-index: 1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .iwb-register-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+  }
+  
+  .iwb-register-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    border-radius: 2px;
+    animation: underlineGrow 0.6s ease-out forwards;
+  }
+  
+  @keyframes underlineGrow {
+    from { width: 0; }
+    to { width: 60px; }
+  }
+  
+  /* Input Fields */
+  .iwb-register-input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+  }
+  
+  .iwb-register-input:focus {
+    outline: none;
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 4px rgba(165, 180, 252, 0.3);
+    background: white;
+  }
+  
+  .iwb-register-input.iwb-error {
+    border-color: #fc8181;
+    animation: shake 0.5s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+  
+  /* Password Input Container */
+  .iwb-password-input-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  .iwb-password-error {
+    color: #e53e3e;
+    font-size: 0.875rem;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .iwb-password-hints {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #4a5568;
+    border-left: 3px solid #a5b4fc;
+  }
+  
+  .iwb-password-hints ul {
+    margin: 0.5rem 0 0 1rem;
+    padding: 0;
+  }
+  
+  .iwb-password-hints li {
+    list-style-type: none;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .iwb-password-hints li::before {
+    content: '✗';
+    position: absolute;
+    left: 0;
+    color: #e53e3e;
+  }
+  
+  .iwb-password-hints li.iwb-valid {
+    color: #38a169;
+  }
+  
+  .iwb-password-hints li.iwb-valid::before {
+    content: '✓';
+    color: #38a169;
+  }
+  
+  /* Role Select Dropdown */
+  .iwb-register-select {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #f8fafc url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 1rem center;
+    background-size: 1em;
+    appearance: none;
+    transition: all 0.3s ease;
+  }
+  
+  .iwb-register-select:focus {
+    outline: none;
+    border-color: #a5b4fc;
+    box-shadow: 0 0 0 4px rgba(165, 180, 252, 0.3);
+    background-color: white;
+  }
+  
+  /* Register Button */
+  .iwb-register-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .iwb-register-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+  }
+  
+  .iwb-register-button:disabled {
+    background: #cbd5e1;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+  
+  .iwb-register-button.iwb-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, 
+      rgba(255,255,255,0) 0%, 
+      rgba(255,255,255,0.3) 50%, 
+      rgba(255,255,255,0) 100%);
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* Footer Links */
+  .iwb-register-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #4a5568;
+    font-size: 0.9375rem;
+  }
+  
+  .iwb-register-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .iwb-register-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #667eea;
+    transition: width 0.3s ease;
+  }
+  
+  .iwb-register-link:hover::after {
+    width: 100%;
+  }
+  
+  .iwb-register-link-home {
+    display: inline-flex;
+    align-items: center;
+    color: #4a5568;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .iwb-register-link-home:hover {
+    color: #667eea;
+    transform: translateX(-3px);
+  }
+  
+  /* Error Message */
+  .iwb-register-error {
+    background: #fff5f5;
+    color: #e53e3e;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #e53e3e;
+    animation: fadeIn 0.5s ease-out;
+  }

@@ -8,9 +8,15 @@ const speakeasy = require('speakeasy');
 const QRCode = require('qrcode');
 require('dotenv').config();
 
+// Add this check:
+const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+console.log(`Allowing requests from: ${frontendUrl}`); 
 const app = express();
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: [
+    'https://cloud-computing-complete.vercel.app', // Your live frontend
+    'http://localhost:3000' // Keep for local development
+  ],
   credentials: true
 }));
 app.use(bodyParser.json());
@@ -20,12 +26,14 @@ const PORT = process.env.PORT || 5000;
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  retryWrites: true,
+  w: 'majority'
 })
-.then(() => console.log('Connected to MongoDB'))
+.then(() => console.log('Connected to MongoDB Atlas'))
 .catch(err => {
   console.error('MongoDB connection error:', err);
-  process.exit(1);
+  process.exit(1); // Crash app if DB fails
 });
 
 // ========== MONGOOSE SCHEMAS ========== //
@@ -290,7 +298,18 @@ const getAutoReply = async (message) => {
   }
 };
 
+//===========Appended before the routes==========//==/
+// Trust proxy for HTTPS (essential for Vercel+Render)
+app.set('trust proxy', 1);
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ 
+    status: 'healthy',
+    frontend: process.env.FRONTEND_URL,
+    environment: process.env.NODE_ENV 
+  });
+});
 
 // ========== AUTHENTICATION ROUTES ========== //
 app.post('/register', async (req, res) => {
@@ -1947,7 +1966,11 @@ app.get('/investor/monthly-trends', verifyToken, async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`
+  Server running in ${process.env.NODE_ENV || 'development'}
+  Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:3000'}
+  Listening on port ${PORT}
+  `);
 });
 
 /*
